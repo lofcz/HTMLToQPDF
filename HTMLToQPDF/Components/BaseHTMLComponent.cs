@@ -67,13 +67,14 @@ namespace HTMLQuestPDF.Components
 
         private void ComposeMany(ColumnDescriptor col, List<HtmlNode> nodes)
         {
-            if (nodes.Count == 1)
+            switch (nodes.Count)
             {
-                col.Item().Component(nodes.First().GetComponent(args));
-            }
-            else if (nodes.Count > 0)
-            {
-                col.Item().Component(new ParagraphComponent(nodes, args));
+                case 1:
+                    col.Item().Component(nodes.First().GetComponent(args));
+                    break;
+                case > 0:
+                    col.Item().Component(new ParagraphComponent(nodes, args));
+                    break;
             }
         }
     }

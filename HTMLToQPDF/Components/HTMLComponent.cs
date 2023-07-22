@@ -25,12 +25,17 @@ namespace HTMLToQPDF.Components
             { "h5", t => t.FontSize(16).Bold() },
             { "h6", t => t.FontSize(12).Bold() },
             { "b", t => t.Bold() },
+            { "strong", t => t.Bold() },
             { "i", t => t.Italic() },
+            { "em", t => t.Italic() },
             { "small", t => t.Light() },
             { "strike", t => t.Strikethrough() },
+            { "del", t => t.Strikethrough() },
             { "s", t => t.Strikethrough() },
             { "u", t => t.Underline() },
             { "a", t => t.Underline() },
+            { "sup", t => t.Superscript() },
+            { "sub", t => t.Subscript() }
         };
 
         public Dictionary<string, Func<TextStyle, TextStyle>> CssStyles { get; } = new();

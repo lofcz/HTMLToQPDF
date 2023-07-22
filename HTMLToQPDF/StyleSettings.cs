@@ -12,11 +12,16 @@ namespace HTMLQuestPDF
             "a",
             "b",
             "br",
+            "del",
+            "em",
             "i",
             "s",
             "small",
             "space",
             "strike",
+            "strong",
+            "sub",
+            "sup",
             "tbody",
             "td",
             "th",
@@ -28,7 +33,7 @@ namespace HTMLQuestPDF
             "span"
         };
 
-        public static readonly string[] BlockElements = new string[] {
+        public static readonly string[] BlockElements = {
             "#document",
             "div",
             "h1",
@@ -53,8 +58,8 @@ namespace HTMLQuestPDF
         {
             return node.Name.ToLower() switch
             {
-                "#text" or "h1" or "h2" or "h3" or "h4" or "h5" or "h6" or "b" or "s" or "strike" or "i" or "small" or "u"
-                    => new ParagraphComponent(new List<HtmlNode>() { node }, args),
+                "#text" or "h1" or "h2" or "h3" or "h4" or "h5" or "h6" or "b" or "s" or "strike" or "i" or "small" or "u" or "del" or "em" or "strong" or "sub" or "sup"
+                    => new ParagraphComponent(new List<HtmlNode> { node }, args),
                 "br" => new BrComponent(node, args),
                 "a" => new AComponent(node, args),
                 "div" => new BaseHTMLComponent(node, args),
